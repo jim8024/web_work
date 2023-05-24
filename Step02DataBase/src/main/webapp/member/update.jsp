@@ -25,17 +25,17 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
 </head>
 <body>
-	<div class="container">
+	<div class="container" mt-5>
 		<h1>알림</h1>
 		<%if(isSuccess){ %>
-			<p>
+			<p class="alert alert-success">
 				<strong><%=num %></strong>번 회원의 정보가 변경되었습니다
-				<a href="list.jsp">확인</a>
+				<a class="alert-link" href="list.jsp">확인</a>
 			</p>
 		<%}else{ %>
-			<p>
+			<p class="alert alert-danger">
 				수정실패
-				<a href="list.jsp"></a>
+				<a class="alert-link"href="list.jsp"></a>
 			</p>
 		<%} %>
 	</div>
