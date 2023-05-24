@@ -33,6 +33,8 @@ List<MemberDto> list=dao.getList();
 					<th>번호</th>
 					<th>이름</th>
 					<th>주소</th>
+					<th>수정</th>
+					<th>삭제</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -41,6 +43,11 @@ List<MemberDto> list=dao.getList();
 			<td><%=tmp.getNum()%></td>
 			<td><%=tmp.getName()%></td>
 			<td><%=tmp.getAddr()%></td>
+			<td>
+				
+				<a href="updateform.jsp?num=<%=tmp.getNum ()%>">수정</a>
+				
+			</td>
 			<td>
 				<a href="delete.jsp?num=<%=tmp.getNum()%>">
 					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-x" viewBox="0 0 16 16">
