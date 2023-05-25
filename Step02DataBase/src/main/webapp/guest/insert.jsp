@@ -1,47 +1,41 @@
-<%@page import="test.guest.dto.GuestDto"%>
 <%@page import="test.guest.dao.GuestDao"%>
+<%@page import="test.guest.dto.GuestDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-//1.post방식으로 전송되는 회원의 이름,주소를 추출한다
-	//요청 인코딩 설정
+	//1. 폼전송되는 방명록 작성자, 글내용, 비밀번호를 읽어온다.
 	request.setCharacterEncoding("utf-8");
-	//요청 파라미터 추출
 	String writer=request.getParameter("writer");
 	String content=request.getParameter("content");
 	String pwd=request.getParameter("pwd");
-	String regdate=request.getParameter("regdate");
-	//추가할 회원 정보를 DTO에 담기
-	GuestDto dto= new GuestDto();
+	//2. DB 에 저장한다.
+	GuestDto dto=new GuestDto();
 	dto.setWriter(writer);
 	dto.setContent(content);
 	dto.setPwd(pwd);
-	dto.setRegdate(regdate);
-	//2.DB에 저장한다
-	GuestDao dao=GuestDao.getInstance();
-	boolean isSuccess=dao.insert(dto);
+	boolean isSuccess=GuestDao.getInstance().insert(dto);
+	//3. 응답한다.
 %>    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Insert title here</title>
+<title>/guest/insert.jsp</title>
 </head>
 <body>
-	<div class="container" mt-5>
-		<h1>알림</h1>
-		<%if(isSuccess){ %>
-			<p class="alert alert-warning">
-				<strong><%=writer %></strong>님의 정보가 저장되었습니다
-				<a href="list.jsp">확인</a>
-			</p>
-		<%}else{ %>
-			<p class="alert alert-danger">
-				회원 정보 저장실패
-				<a href="list.jsp"></a>
-			</p>
-		<%} %>
-	</div>
+	<!-- 이 주석은 웹브라우저에게 출력되지만 웹브라우저가 무시하는 주석 -->
+	<%-- 이 주석은 jsp 페이지가 무시하는 주석(웹브라우저에 출력되지 않는다) --%>
+	<%-- javascript 응답하기 --%>
+	<script>
+		<%if(isSuccess){%>
+			//알림창 띄우가
+			alert("<%=writer%>의 글을 성공적으로 등록 했습니다.");
+			//javascript 로 페이지 이동
+			location.href="${pageContext.request.contextPath }/guest/list.jsp";
+		<%}else{%>
+			alert("등록 실패!");
+			location.href="${pageContext.request.contextPath }/guest/insertform.jsp";
+		<%}%>
+	</script>
 </body>
 </html>
