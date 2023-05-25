@@ -44,9 +44,7 @@ List<MemberDto> list=dao.getList();
 			<td><%=tmp.getName()%></td>
 			<td><%=tmp.getAddr()%></td>
 			<td>
-				
-				<a href="updateform.jsp?num=<%=tmp.getNum ()%>">수정</a>
-				
+				<a href="updateform.jsp?num=<%=tmp.getNum()%>">수정</a>
 			</td>
 			<td>
 				<a href="delete.jsp?num=<%=tmp.getNum()%>">
