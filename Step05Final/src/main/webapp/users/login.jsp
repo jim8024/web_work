@@ -5,7 +5,7 @@
 <%
 	
 	//1.폼 전송되는 id 와 pwd를 읽어와서 
-	request.setCharacterEncoding("utf-8");
+
 	String id=request.getParameter("id");
 	String pwd=request.getParameter("pwd");
 	//2.UsersDto에 담아서 

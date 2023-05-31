@@ -4,7 +4,7 @@
     pageEncoding="UTF-8"%>
 <%
 	//요청 인코딩
-	request.setCharacterEncoding("utf-8");
+	
 	//1.폼 전송되는 회원  가입정보를 읽어와서 
 	String id=request.getParameter("id");
 	String pwd=request.getParameter("pwd");
