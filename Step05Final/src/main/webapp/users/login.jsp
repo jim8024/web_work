@@ -1,3 +1,4 @@
+<%@page import="java.net.URLEncoder"%>
 <%@page import="test.users.dao.UsersDao"%>
 <%@page import="test.users.dto.UsersDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -8,6 +9,7 @@
 
 	String id=request.getParameter("id");
 	String pwd=request.getParameter("pwd");
+	
 	//2.UsersDto에 담아서 
 	UsersDto dto=new UsersDto();
 	dto.setId(id);
@@ -27,6 +29,9 @@
 		//session scope에 id라는 키값으로 로그인된 아이디 담기
 		session.setAttribute("id", id);
 	}
+	String url=request.getParameter("url");
+	String encodedUrl=URLEncoder.encode(url);
+	
 %>
 <!DOCTYPE html>
 <html>
@@ -42,7 +47,7 @@
 		<%if(isValid){ %>
 			<p class="alert alert-success">
 				<strong><%=dto.getId() %></strong>님이 로그인 되었습니다
-				<a href="${pageContext.request.contextPath}/index.jsp">확인</a>
+				<a href="<%=url %>">확인</a>
 			</p>
 			<%}else{ %>
 				<p class="alert alert-danger">
