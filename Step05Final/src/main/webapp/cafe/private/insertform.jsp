@@ -9,6 +9,14 @@
 </head>
 <body>
 	<div class="container">
+		<nav>
+		  <ol class="breadcrumb">
+		    <li class="breadcrumb-item"><a href="../index.jsp">Home</a></li>
+		    <li class="breadcrumb-item"><a href="list.jsp">Cafe</a></li>
+		    <li class="breadcrumb-item"><a href="">Insert</a></li>
+		    <li class="breadcrumb-item active">Update</li>
+		  </ol>
+		</nav>
 		<h1>새글 작성 양식</h1>
 		<form action="insert.jsp" method="post">
 			<div class="mb-2">
