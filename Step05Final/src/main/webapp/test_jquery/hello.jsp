@@ -18,10 +18,10 @@
 	</div>
 	
 	<div>div1</div>
-		<div class="my-class">div2</div>
-		<div class="my-class">div3</div>
-		<div id="one">div4</div>
-	
+	<div class="my-class">div2</div>
+	<div class="my-class">div3</div>
+	<div id="one">div4</div>
+
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
 	<script>
 		//위의 input 요소에 문자열을 입력하고 전송버튼을 누르면 p 요소에 msg가 출력되도록
